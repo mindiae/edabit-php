@@ -23,17 +23,14 @@ function compress($arr) {
     '/(.)(?!\1|$)\K/',
     join('', $arr)
   );
-  return join(
-    '',
-    array_map(
-      function($var) {
-        return (strlen($var) == 1)
-          ?$var
-          :$var[0] . strlen($var);
-      },
-      $repeatedChars
-    )
-  );
+  return join('', array_map(
+    function($var) {
+      return (strlen($var) == 1)
+        ?$var
+        :$var[0] . strlen($var);
+    },
+    $repeatedChars
+  ));
 }
 
 // Author: Evgeny SH
